@@ -21,6 +21,18 @@
 		E04CA66F2CAAF235003FF5AC /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E04EA8962CAC579D00BCA850 /* Exceptions for "Screenshots" folder in "WeatherApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DarkModeHomepng.png,
+				LightModeHome.png,
+				Search.png,
+			);
+			target = E04CA6102CA83ADA003FF5AC /* WeatherApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E04CA6132CA83ADA003FF5AC /* WeatherApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -30,6 +42,14 @@
 		E04CA6702CAAF235003FF5AC /* WeatherAppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = WeatherAppTests;
+			sourceTree = "<group>";
+		};
+		E04EA8922CAC578400BCA850 /* Screenshots */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E04EA8962CAC579D00BCA850 /* Exceptions for "Screenshots" folder in "WeatherApp" target */,
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -55,6 +75,7 @@
 		E04CA6082CA83ADA003FF5AC = {
 			isa = PBXGroup;
 			children = (
+				E04EA8922CAC578400BCA850 /* Screenshots */,
 				E04CA6132CA83ADA003FF5AC /* WeatherApp */,
 				E04CA6702CAAF235003FF5AC /* WeatherAppTests */,
 				E04CA6122CA83ADA003FF5AC /* Products */,
@@ -87,6 +108,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				E04CA6132CA83ADA003FF5AC /* WeatherApp */,
+				E04EA8922CAC578400BCA850 /* Screenshots */,
 			);
 			name = WeatherApp;
 			packageProductDependencies = (

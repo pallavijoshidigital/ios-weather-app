@@ -13,20 +13,23 @@ struct HomeView: View {
     @State private var isPresented = false
     
     var body: some View {
-        ScrollView {
-            ZStack {
-                // Reserve space matching the scroll view's frame
-                Spacer().containerRelativeFrame([.horizontal, .vertical])
-                switch viewModel.viewState {
-                case .idle:
-                    IdleView()
-                case .loading:
-                    LoadingView()
-                case .success(let weather):
-                    SuccessView(weather: weather)
-                case .error(let messageKey):
-                    ErrorView(messageKey: messageKey)
+        GeometryReader { geo in
+            ScrollView (.vertical) {
+                ZStack {
+                    // Reserve space matching the scroll view's frame
+                    Spacer().containerRelativeFrame([.horizontal, .vertical])
+                    switch viewModel.viewState {
+                    case .idle:
+                        IdleView()
+                    case .loading:
+                        LoadingView()
+                    case .success(let weather):
+                        SuccessView(weather: weather)
+                    case .error(let messageKey):
+                        ErrorView(messageKey: messageKey)
+                    }
                 }
+                .frame(width: geo.size.width)
             }
         }
         .scrollBounceBehavior(.basedOnSize)
@@ -38,7 +41,7 @@ struct HomeView: View {
         }
         .navigationTitle(LocalizedStringKey("HomeViewTitle"))
         .navigationBarTitleDisplayMode(.large)
-        .searchable(text: $viewModel.searchText, isPresented: $isPresented, prompt: LocalizedStringKey("StartSearch"))
+        .searchable(text: $viewModel.searchText, isPresented: $isPresented, placement: .navigationBarDrawer(displayMode: .always), prompt: LocalizedStringKey("StartSearch"))
         .onSubmit(of: .search, {
             isPresented = false
             viewModel.fetchWeather(name: viewModel.searchText)
@@ -53,7 +56,7 @@ struct HomeView: View {
                 ForEach($viewModel.locationSuggestions, id: \.id) { suggestion in
                     Text(suggestion.displayName.wrappedValue)
                         .font(.system(size: 20, weight: .regular, design: .default))
-                        .foregroundStyle(.label)
+                        .foregroundStyle(.appLabel)
                         .searchCompletion(suggestion.displayName.wrappedValue)
                 }
             } else {
@@ -169,7 +172,7 @@ struct SuccessView: View {
     }
     
     @ViewBuilder private func currentConditionsView(_ weather: Weather) -> some View {
-        Grid(horizontalSpacing: 20, verticalSpacing: 20) {
+        Grid(alignment: .center, horizontalSpacing: 20, verticalSpacing: 20) {
             GridRow {
                 RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                     .fill(.gray)

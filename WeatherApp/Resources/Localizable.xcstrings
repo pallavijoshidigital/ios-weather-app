@@ -1,0 +1,59 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "ErrorGeneric" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oops, something went wrong. Please try again later."
+          }
+        }
+      }
+    },
+    "H: %@" : {
+
+    },
+    "HomeViewTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weather"
+          }
+        }
+      }
+    },
+    "Humidity: %@ %%" : {
+
+    },
+    "L: %@" : {
+
+    },
+    "NoResultFound" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No location found"
+          }
+        }
+      }
+    },
+    "StartSearch" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search for a location"
+          }
+        }
+      }
+    },
+    "Wind: %@ mph" : {
+
+    }
+  },
+  "version" : "1.0"
+}
